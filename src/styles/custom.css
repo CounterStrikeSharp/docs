@@ -1,0 +1,31 @@
+:root {
+  --sl-font: 'IBM Plex Sans', serif;
+  --sl-font-mono: 'Jetbrains Mono', monospace;
+}
+
+.sl-markdown-content :not(h1, h2, h3, h4, h5, h6) + :is(h1, h2, h3, h4, h5, h6):not(:where(.not-content *)) {
+  margin-top: 0.75em;
+}
+
+.hero {
+  grid-template-columns: 1fr;
+}
+
+.hero .copy {
+  align-items: center;
+}
+
+.hero .actions {
+  justify-content: center;
+  gap: 1rem;
+}
+
+.action {
+  border-radius: 0.5rem;
+}
+
+@media (min-width: 50rem) {
+  .hero {
+    padding-block: clamp(2.5rem, calc(1rem + 10vmin), 2.5rem);
+  }
+}
