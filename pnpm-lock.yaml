@@ -11,9 +11,6 @@ dependencies:
   '@fontsource/ibm-plex-sans':
     specifier: ^5.0.15
     version: 5.0.19
-  '@fontsource/inter':
-    specifier: ^5.0.15
-    version: 5.0.17
   '@fontsource/jetbrains-mono':
     specifier: ^5.0.15
     version: 5.0.15
@@ -846,10 +843,6 @@ packages:
 
   /@fontsource/ibm-plex-sans@5.0.19:
     resolution: {integrity: sha512-ski0jMCzMG/xLTa5w+qj/Dx6NGQMvZtl0/tzCHnf4HMjbMRsDHkzYRsfo0bi6VmKWdmYF623rQhSI/KVSYlbFw==}
-    dev: false
-
-  /@fontsource/inter@5.0.17:
-    resolution: {integrity: sha512-2meBGx1kt7u5LwzGc5Sz5rka6ZDrydg6nT3x6Wkt310vHXUchIywrO8pooWMzZdHYcyFY/cv4lEpJZgMD94bCg==}
     dev: false
 
   /@fontsource/jetbrains-mono@5.0.15:
