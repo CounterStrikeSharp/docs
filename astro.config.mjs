@@ -61,7 +61,7 @@ export default defineConfig({
       },
     }),
   ],
-  base: '/',
+  base: '/docs/',
   site: 'https://counterstrikesharp.github.io/docs/',
   markdown: {
     shikiConfig: {
