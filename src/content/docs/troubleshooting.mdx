@@ -1,0 +1,28 @@
+---
+title: Troubleshooting
+---
+
+### `meta list` returns no information
+
+The most common reason for this is that the `/game/csgo/gameinfo.gi` file has been overwritten by a game update. This file must be modified correctly in order for Metamod to load successfully.
+Follow instructions at [Installing Metamod](guides/installation/#installing-metamod) to restore the file.
+
+<hr/>
+### `meta list: listing 1 plugin: [01] <error>`
+### `Unknown command 'css'!`
+
+The most common cause for this is that CS# has been installed on the server but was installed without the `with-runtime` version. 
+The initial installation of CS# requires the .NET runtime to function. You can confirm this is the root cause by checking the logs of the server output, it should say:
+`CSSharp: Failed to initialize .NET runtime.` Download the version labeled: `counterstrikesharp-with-runtime-build-xxx...` and try the installation again.
+
+<hr/>
+
+### `The configured user limit (512) on the number of inotify instances has been reached, or the per-process limit on the number of open file descriptors has been reached.`
+
+This error occurs because CS# automatically watches all plugin files for changes in order to enable hot reload. Some server hosts limit the amount of inotify instances that can be created. You can increase the limit by running the following command if you have access:
+
+```shell
+echo fs.inotify.max_user_instances=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+```
+
+Alternatively you can disable hot reload by setting [`PluginHotReloadEnabled`](reference/core-configuration/#pluginhotreloadenabled) option to `false` in the `core.json` config file.

@@ -39,6 +39,19 @@ export default defineConfig({
           autogenerate: { directory: 'guides' },
         },
         {
+          label: 'Help',
+          items: [
+            {
+              label: 'Troubleshooting',
+              link: 'troubleshooting',
+            },
+            {
+              label: 'Resources',
+              link: 'resources',
+            }
+          ]
+        },
+        {
           label: 'Features',
           autogenerate: { directory: 'features' },
         },
