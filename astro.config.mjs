@@ -8,6 +8,9 @@ export default defineConfig({
       title: 'CounterStrikeSharp',
       logo: { src: './src/assets/logo.svg' },
       favicon: './src/assets/logo.svg',
+      expressiveCode: {
+        themes: [ 'dark-plus', 'light-plus'],
+      },
       customCss: [
         '@fontsource/ibm-plex-sans/400.css',
         '@fontsource/ibm-plex-sans/500.css',
@@ -59,7 +62,7 @@ export default defineConfig({
     }),
   ],
   base: '/',
-  site: 'https://docs.cssharp.dev',
+  site: 'https://counterstrikesharp.github.io/docs/',
   markdown: {
     shikiConfig: {
       wrap: false,
