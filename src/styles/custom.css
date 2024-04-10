@@ -1,6 +1,7 @@
 :root {
   --sl-font: 'IBM Plex Sans', serif;
   --sl-font-mono: 'Jetbrains Mono', monospace;
+  --sl-content-width: 60rem;
 }
 
 .sl-markdown-content :not(h1, h2, h3, h4, h5, h6) + :is(h1, h2, h3, h4, h5, h6):not(:where(.not-content *)) {
@@ -28,4 +29,16 @@
   .hero {
     padding-block: clamp(2.5rem, calc(1rem + 10vmin), 2.5rem);
   }
+}
+
+.tagline {
+  text-align: center;
+}
+
+.content-panel {
+  margin: 1.5rem;
+}
+
+.right-sidebar-container {
+  width: calc(var(--sl-sidebar-width) +(100% - var(--sl-content-width) - var(--sl-sidebar-width)) / 3);
 }
