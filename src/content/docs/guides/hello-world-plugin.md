@@ -2,7 +2,7 @@
 title: Hello World Plugin
 description: How to write your first plugin for CounterStrikeSharp
 sidebar:
-  order: 0
+  order: 1
 ---
 
 How to write your first plugin for CounterStrikeSharp

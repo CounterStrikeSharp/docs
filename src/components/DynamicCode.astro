@@ -1,9 +1,9 @@
 ---
 import { Code } from "@astrojs/starlight/components"
-const { path } = Astro.props;
+const { path, lang } = Astro.props;
 
 const title = path.split("/").pop()
 const res = await fetch(`https://raw.githubusercontent.com/roflmuffin/CounterStrikeSharp/main/${path}`)
 const text = await res.text()
 ---
-<Code code={text} lang="csharp" title={title}/>
+<Code code={text} lang={lang ?? 'csharp'} title={title}/>
