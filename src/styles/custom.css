@@ -2,6 +2,7 @@
   --sl-font: 'IBM Plex Sans', serif;
   --sl-font-mono: 'Jetbrains Mono', monospace;
   --sl-content-width: 60rem;
+  --sl-line-height: 1.6;
 }
 
 .sl-markdown-content :not(h1, h2, h3, h4, h5, h6) + :is(h1, h2, h3, h4, h5, h6):not(:where(.not-content *)) {
@@ -41,4 +42,8 @@
 
 .right-sidebar-container {
   width: calc(var(--sl-sidebar-width) +(100% - var(--sl-content-width) - var(--sl-sidebar-width)) / 3);
+}
+
+.tab a[role="tab"]{
+  padding: 0.5em;
 }

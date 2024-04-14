@@ -5,48 +5,73 @@ sidebar:
   order: 0
 ---
 import example from "../../../assets/gameinfogi-example.png";
+import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-In this guide you will learn how to install CounterStrikeSharp onto your vanilla Counter-Strike 2 server. `CounterStrikeSharp` uses `Metamod:Source` as its main way of communicating with the game server, so both frameworks will need to be installed.
+In this guide you will learn how to install CounterStrikeSharp onto your vanilla Counter-Strike 2 server. 
 
-If you're more of a visual person, here is a <a href="https://www.youtube.com/watch?v=FlsKzStHJuY" target="_blank">Youtube video</a> that covers everything.
+<Tabs>
+  <TabItem label="Script Installation" icon="seti:shell">
+    This is the easiest way to install CounterStrikeSharp. It will automatically download the latest release and install it for you.
 
-## Prerequisites
-- <a href="https://www.sourcemm.net/downloads.php/?branch=master" target="_blank">Metamod: Source 2.X Dev Build</a>
-- <a href="https://github.com/roflmuffin/CounterStrikeSharp/releases" target="_blank">CounterStrikeSharp With Runtime</a>
+    Run the following script from the root directory (that contains the `game/` folder) of your server to install CounterStrikeSharp.
+  <Tabs>
+    <TabItem label="Linux" icon="linux">
+      ```shell
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/roflmuffin/CounterStrikeSharp/main/eng/install/install.sh)"
+      ```
+    </TabItem>
+    <TabItem label="Windows" icon="seti:windows">
+      ```shell
+      irm https://raw.githubusercontent.com/roflmuffin/CounterStrikeSharp/main/eng/install/install.ps1 | iex
+      ```
+    </TabItem>
+  </Tabs>
+  </TabItem>
+  <TabItem label="Manual Installation" icon="bars">
+    This method requires you to download the latest release and manually copy the files to your server.
 
-## Installing Metamod
+    `CounterStrikeSharp` uses `Metamod:Source` as its main way of communicating with the game server, so both frameworks will need to be installed.
 
-1. Extract Metamod and copy the `/addons/` directory to `/game/csgo/`.
-2. Inside `/game/csgo/`, locate `gameinfo.gi`.
-3. Create a new line underneath `Game_LowViolence    csgo_lv` and add `Game    csgo/addons/metamod`.
-4. Restart your game server.
+    If you're more of a visual person, here is a <a href="https://www.youtube.com/watch?v=FlsKzStHJuY" target="_blank">Youtube video</a> that covers everything.
 
-Your `gameinfo.gi` should look like <a href={example.src} target="_blank">this</a>. Type `meta list` in your server console to see if Metamod is loaded.
+    ### Prerequisites
+    - <a href="https://www.sourcemm.net/downloads.php/?branch=master" target="_blank">Metamod: Source 2.X Dev Build</a>
+    - <a href="https://github.com/roflmuffin/CounterStrikeSharp/releases" target="_blank">CounterStrikeSharp With Runtime</a>
 
-## Installing CounterStrikeSharp
+    ### Installing Metamod
 
-1. Extract CounterStrikeSharp and copy the `/addons/` directory to `/game/csgo/`.
-2. Restart your game server.
+    1. Extract Metamod and copy the `/addons/` directory to `/game/csgo/`.
+    2. Inside `/game/csgo/`, locate `gameinfo.gi`.
+    3. Create a new line underneath `Game_LowViolence    csgo_lv` and add `Game    csgo/addons/metamod`.
+    4. Restart your game server.
 
-Running the command `meta list` in the console should show 1 plugin loaded 🎉
+    Your `gameinfo.gi` should look like <a href={example.src} target="_blank">this</a>. Type `meta list` in your server console to see if Metamod is loaded.
+
+    ### Installing CounterStrikeSharp
+
+    1. Extract CounterStrikeSharp and copy the `/addons/` directory to `/game/csgo/`.
+  </TabItem>
+</Tabs>
+
+Restart the server and run `meta list` in the console to see if CounterStrikeSharp is loaded successfully:
 
 ```shell
 meta list
 Listing 1 plugin:
-  [01] CounterStrikeSharp (0.1.0) by Roflmuffin
+  [01] CounterStrikeSharp (v213 @ dfc9859) by Roflmuffin
 ```
 
 :::caution
 For Windows servers, you must have <a href="https://aka.ms/vs/17/release/vc_redist.x64.exe" target="_blank">Visual Studio Redistributables</a> installed otherwise CounterStrikeSharp will not work.
 :::
 
-## Upgrading CounterStrikeSharp
+### Upgrading CounterStrikeSharp
 
-To upgrade CounterStrikeSharp you simply need to download the latest release and copy it to your server, the same as the original installation. 
+To upgrade CounterStrikeSharp you can simply re-run the [installation script](#script-installation) or manually download the latest release and copy it to your server.
 
 CounterStrikeSharp is designed in a way where your configuration files will not be overwritten if you do this. As CounterStrikeSharp is already installed, you may download the non `with-runtime` build, but you will need to ensure your .NET runtime is up-to-date yourself. 
 
-## Troubleshooting
+### Troubleshooting
 
 - If this is your first time installing, you **MUST** download the `with-runtime` version. This includes a copy of the .NET runtime, which is required to run the plugin.
 - Depending on your OS you might also either need to install `libicu` / `icu-libs` / `libicu-dev` using your package manager for .NET to run.
